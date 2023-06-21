@@ -78,14 +78,13 @@ void pall(stack_t **stack, unsigned int line_number)
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
-	stack_t *stack;
-
-	(void) line_number;
-
-	if (stack == NULL || *stack == NULL);
+	if (stack == NULL || *stack == NULL)
 	{
-		printf(stderr, "L%u: can't pint, stack empty\n", line_number);
-		my_exit (EXIT_FAILURE);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		fclose(info.file);
+		free(info.instruction);
+		free_stack(*stack);
+		my_exit(1);
 	}
 
 	printf("%d\n", (*stack)->n);
