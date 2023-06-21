@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "monty.h"
 
 info_t info = {NULL, NULL, NULL}; /* initialize info global variable */
@@ -61,7 +60,8 @@ void handle_instruction(char *opcode, unsigned int line_num)
 {
 	instruction_t instructions[] = {{"push", push}, {"pall", pall},
 					{"pint", pint}, {"pop", pop},
-					{"swap", swap}, {NULL, NULL}};
+					{"swap", swap}, {"add", add},
+					{NULL, NULL}};
 	int i;
 
 	for (i = 0; instructions[i].opcode; i++)
