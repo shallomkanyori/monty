@@ -107,3 +107,36 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	free(top);
 }
+
+/**
+ * swap - swaps the top two elements of the stack
+ * @stack: a pointer to a pointer to the top of the stack
+ * @line_number: the line number of the current instructions in the
+ * ByteCodes file
+ *
+ * Return: nothing.
+ */
+void swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *a, *b;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		my_exit(1);
+	}
+
+	a = *stack;
+	b = a->next;
+
+	a->next = b->next;
+	a->prev = b;
+
+	if (b->next)
+		b->next->prev = a;
+
+	b->next = a;
+	b->prev = NULL;
+
+	*stack = b;
+}
