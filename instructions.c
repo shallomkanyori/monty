@@ -103,6 +103,6 @@ void pop(stack_t **stack, unsigned int line_number)
 		my_exit(1);
 	}
 
-	stack ->n;
+	*stack = stack->n;
 	my_exit(1);
 }
