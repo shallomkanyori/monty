@@ -60,8 +60,7 @@ int main(int ac, char **av)
 void handle_instruction(char *opcode, unsigned int line_num)
 {
 	instruction_t instructions[] = {{"push", push}, {"pall", pall},
-					{"pint", pint}, {"pop", pop},
-					{NULL, NULL}};
+					{"pint", pint}, {NULL, NULL}};
 	int i;
 
 	for (i = 0; instructions[i].opcode; i++)
