@@ -107,7 +107,6 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	top = *stack;
 	*stack = top->next;
-
 	if (top->n)
 		top->next->prev = NULL;
 
