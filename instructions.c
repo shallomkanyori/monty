@@ -36,10 +36,10 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 
 	new->n = n;
-	new->next = NULL;
-	new->prev = *stack;
+	new->prev = NULL;
+	new->next = *stack;
 	if (*stack)
-		(*stack)->next = new;
+		(*stack)->prev = new;
 
 	*stack = new;
 }
@@ -65,6 +65,6 @@ void pall(stack_t **stack, unsigned int line_number)
 	while (curr)
 	{
 		printf("%d\n", curr->n);
-		curr = curr->prev;
+		curr = curr->next;
 	}
 }
