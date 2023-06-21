@@ -10,16 +10,11 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	char *arg, *instruction_cpy = info.instruction;
-	int i, n;
+	char *arg;
+	int n;
 	stack_t *new;
 
-	/* get the next argument after the opcode in instruction */
-	for (i = 0; instruction_cpy[i]; i++)
-		;
-
-	instruction_cpy = &instruction_cpy[++i];
-	arg = strtok(instruction_cpy, " \t\n");
+	arg = strtok(NULL, " \t\n");
 
 	if (arg == NULL || !is_only_digits(arg))
 	{
