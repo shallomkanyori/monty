@@ -89,7 +89,6 @@ void pint(stack_t **stack, unsigned int line_number)
 	while (top)
 	{
 		printf("%d\n", top->n);
-		top = top->next;
 	}
 
 }
