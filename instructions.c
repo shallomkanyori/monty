@@ -101,7 +101,7 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL || *stack == NULL)
 	{
-		fprintf(stderr, "L%u: can't pop, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pop, stack empty\n",);
 		my_exit(1);
 	}
 
