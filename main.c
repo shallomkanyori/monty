@@ -40,6 +40,12 @@ int main(int ac, char **av)
 		handle_instruction(opcode, line_num);
 	}
 
+	if (!feof(info.file))
+	{
+		fprintf(stderr, "Error reading file %s\n", av[1]);
+		my_exit(1);
+	}
+
 	my_exit(0);
 	exit(EXIT_SUCCESS); /* does nothing */
 }

@@ -10,8 +10,11 @@ int is_only_digits(char *str)
 {
 	int i;
 
-	for (i = 0; str && str[i]; i++)
-		if (isdigit(str[i]) == 0)
+	if (str == NULL)
+		return (0);
+
+	for (i = 0; str[i]; i++)
+		if (!isdigit(str[i]) && !(str[i] == '-' && i == 0))
 			return (0);
 
 	return (1);
