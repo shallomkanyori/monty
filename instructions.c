@@ -78,15 +78,15 @@ void pall(stack_t **stack, unsigned int line_number)
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
-	stack_t *top;
+	stack_t stack;
 	
 	(void) line_number;
 
 	if (*stack == NULL)
 		return;
-	top = *stack;
-	while (top)
+	stack = *stack;
+	while (stack)
 	{
-		printf("%d\n", top->n);
+		printf("%d\n", stack->n);
 	}
 }
