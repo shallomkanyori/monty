@@ -68,3 +68,25 @@ void pall(stack_t **stack, unsigned int line_number)
 		curr = curr->next;
 	}
 }
+
+/**
+ * pint - prints the top value in the stack
+ * @stack: stack pointer at the top
+ * @line_number: the line_number
+ *
+ * Return: nothing.
+ */
+void pint(stack_t **stack, unsigned int line_number)
+{
+	stack_t *top;
+	
+	(void) line_number;
+
+	if (*stack == NULL)
+		return;
+	top = *stack;
+	while (top)
+	{
+		printf("%d\n", top->n);
+	}
+}
