@@ -27,3 +27,16 @@ void add(stack_t **stack, unsigned int line_number)
 
 	pop(stack, line_number);
 }
+
+/**
+ * nop - does nothing
+ * @stack: a pointer to a pointer to the top of the stack
+ * @line_number: line number of current instruction in the Bytecodes file
+ *
+ * Return: nothing.
+ */
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void) stack;
+	(void) line_number;
+}
