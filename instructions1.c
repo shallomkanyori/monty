@@ -61,9 +61,8 @@ void sub(stack_t **stack, unsigned int line_number)
 	}
 
 	top = *stack;
-	a = top->n;
+	a = top->next->n - top->n;
 	b = top->next->n;
-
 	top->next->n = b - a;
 
 	pop(stack, line_number);
