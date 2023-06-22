@@ -62,8 +62,8 @@ void handle_instruction(char *opcode, unsigned int line_num)
 					{"pint", pint}, {"pop", pop},
 					{"swap", swap}, {"add", add},
 					{"nop", nop}, {"add", add},
-					{"sub", sub}, {"mul", mul},
-					{NULL, NULL}};
+					{"sub", sub}, {"div", _div},
+					{"mul", mul}, {NULL, NULL}};
 	int i;
 
 	for (i = 0; instructions[i].opcode; i++)
