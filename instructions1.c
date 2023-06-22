@@ -94,5 +94,5 @@ void mul(stack_t **stack, unsigned int line_number)
 
 	top->next->n = b * a;
 
-	pop(stack, line_number)
+	pop(stack, line_number);
 }
