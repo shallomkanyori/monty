@@ -33,7 +33,7 @@ int main(int ac, char **av)
 		line_num++;
 		instruction_cpy = info.instruction;
 		opcode = strtok(instruction_cpy, " \t\n");
-		if (opcode == NULL)
+		if (opcode == NULL || opcode[0] == '#')
 			continue;
 
 		handle_instruction(opcode, line_num);
