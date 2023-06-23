@@ -34,3 +34,30 @@ void mod(stack_t **stack, unsigned int line_number)
 
 	pop(stack, line_number);
 }
+/**
+ * pchar - prints the char at the top of the stack if possible
+ * @stack: a pointer to a pointer to the top of the stack
+ * @line_number: the line number to the current instruction in the
+ * ByteCodes file
+ *
+ * Return: nothing.
+ */
+void pchar(stack_t **stack, unsigned int line_number)
+{
+	int c;
+
+	if (stack == NULL || *stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+		my_exit(1);
+	}
+
+	c = (*stack)->n;
+	if (!isascii(c))
+	{
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+		my_exit(1);
+	}
+
+	printf("%c\n", c);
+}
