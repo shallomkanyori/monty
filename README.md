@@ -48,12 +48,12 @@ The opcode `add` adds the top two elements of the stack.
 	- The top element of the stack contains the result
 	- The stack is one element shorter
 
+
 **Task 5: nop.**
 Implement the `nop` opcode.
 **The nop opcode**
 The opcode `nop` doesn't do anything.
 - Usage: `nop`
-
 
 **Task 6: sub.**
 Implement the `sub` opcode.
@@ -87,12 +87,36 @@ The opcode `mul` multiplies the second top element of the stack with the top ele
 	- The stack is one element shorter
 
 **Task 9: mod.**
-Implement the `mod` opcode.
+Implement the `mod` opcode
 **The mod opcode**
-The opcode `mod` computes the remainder of the division of the second top element of the stack by the top element of the stack.
+The opcode `mod` computes the rest of the division of the second top element of the stack by the top element of the stack.
 - Usage: `mod`
 - If the stack contains less than two elements, print the error message `L<line_number>: can't mod, stack too short`, followed by a new line, and exit with the status `EXIT_FAILURE`
 - The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
 	- The top element of the stack contains the result
 	- The stack is one element shorter
 - If the top element of the stack is `0`, print the error message `L<line_number>: division by zero`, followed by a new line, and exit with the status `EXIT_FAILURE`
+
+**Task 10: comments.**
+Every good language comes with the capability of commenting. When the first non-space character of a line is `#`, treat this line as a comment (don’t do anything).
+
+**Task 11: pchar.**
+Implement the `pchar` opcode.
+**The pchar opcode**
+The opcode `pchar` prints the char at the top of the stack, followed by a new line.
+- Usage: `pchar`
+- The integer stored at the top of the stack is treated as the ascii value of the character to be printed
+- If the value is not in the ascii table (man ascii) print the error message `L<line_number>: can't pchar, value out of range`, followed by a new line, and exit with the status `EXIT_FAILURE`
+- If the stack is empty, print the error message `L<line_number>: can't pchar, stack empty`, followed by a new line, and exit with the status `EXIT_FAILURE`
+
+**Task 12: pstr.**
+Implement the `pstr` opcode.
+**The pstr opcode**
+The opcode `pstr` prints the string starting at the top of the stack, followed by a new line.
+- Usage: `pstr`
+- The integer stored in each element of the stack is treated as the ascii value of the character to be printed
+- The string stops when either:
+	- the stack is over
+	- the value of the element is 0
+	- the value of the element is not in the ascii table
+- If the stack is empty, print only a new line

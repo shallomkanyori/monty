@@ -34,6 +34,7 @@ void mod(stack_t **stack, unsigned int line_number)
 
 	pop(stack, line_number);
 }
+
 /**
  * pchar - prints the char at the top of the stack if possible
  * @stack: a pointer to a pointer to the top of the stack
@@ -60,4 +61,32 @@ void pchar(stack_t **stack, unsigned int line_number)
 	}
 
 	printf("%c\n", c);
+}
+
+/**
+ * pstr - prints the string starting at the top of the stack
+ * @stack: a pointer to a pointer to the top of the stack
+ * @line_number: the line_number of the current instruction in the
+ * ByteCode file
+ *
+ * Return: nothing.
+ */
+void pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *curr;
+
+	(void) line_number;
+
+	curr = stack ? *stack : NULL;
+
+	while (curr)
+	{
+		if (!isascii(curr->n) || curr->n == 0)
+			break;
+
+		printf("%c", curr->n);
+		curr = curr->next;
+	}
+
+	printf("\n");
 }
