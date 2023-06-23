@@ -35,6 +35,8 @@ void push(stack_t **stack, unsigned int line_number)
 	new->next = *stack;
 	if (*stack)
 		(*stack)->prev = new;
+	else
+		info.last = new;
 
 	*stack = new;
 }
@@ -104,6 +106,8 @@ void pop(stack_t **stack, unsigned int line_number)
 	*stack = top->next;
 	if (top->next)
 		top->next->prev = NULL;
+	else
+		info.last = NULL;
 
 	free(top);
 }
@@ -134,6 +138,8 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	if (b->next)
 		b->next->prev = a;
+	else
+		info.last = a;
 
 	b->next = a;
 	b->prev = NULL;

@@ -120,3 +120,11 @@ The opcode `pstr` prints the string starting at the top of the stack, followed b
 	- the value of the element is 0
 	- the value of the element is not in the ascii table
 - If the stack is empty, print only a new line
+
+**Task 12: rotl.**
+Implement the `rotl` opcode.
+**The rotl opcode**
+The opcode `rotl` rotates the stack to the top.
+- Usage: `rotl`
+- The top element of the stack becomes the last one, and the second top element of the stack becomes the first one
+- `rotl` never fails

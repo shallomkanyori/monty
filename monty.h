@@ -49,6 +49,7 @@ typedef struct info
 	FILE *file;
 	char *instruction;
 	stack_t *stack;
+	stack_t *last;
 } info_t;
 
 extern info_t info;
@@ -70,6 +71,7 @@ void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
 
 /* utils */
 int is_only_digits(char *str);

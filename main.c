@@ -1,6 +1,6 @@
 #include "monty.h"
 
-info_t info = {NULL, NULL, NULL}; /* initialize info global variable */
+info_t info = {NULL, NULL, NULL, NULL}; /* initialize info global variable */
 
 /**
  * main - interpreter for Monty ByteCodes files
@@ -65,7 +65,7 @@ void handle_instruction(char *opcode, unsigned int line_num)
 					{"sub", sub}, {"div", _div},
 					{"mul", mul}, {"mod", mod},
 					{"pchar", pchar}, {"pstr", pstr},
-					{NULL, NULL}};
+					{"rotl", rotl}, {NULL, NULL}};
 	int i;
 
 	for (i = 0; instructions[i].opcode; i++)

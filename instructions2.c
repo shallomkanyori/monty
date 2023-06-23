@@ -90,3 +90,33 @@ void pstr(stack_t **stack, unsigned int line_number)
 
 	printf("\n");
 }
+
+/**
+ * rotl - rotates the stack to the top
+ * @stack: a pointer to a pointer to the top of the stack
+ * @line_number: the line number of the current instruction in the
+ * ByteCode file
+ *
+ * Return: nothing.
+ */
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *top, *bottom;
+
+	(void) line_number;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		return;
+
+	top = *stack;
+	bottom = info.last;
+
+	*stack = top->next;
+	top->next->prev = NULL;
+
+	bottom->next = top;
+	top->prev = bottom;
+	top->next = NULL;
+
+	info.last = top;
+}
